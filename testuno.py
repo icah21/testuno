@@ -15,7 +15,7 @@ pwm = GPIO.PWM(SERVO_PIN, 50)  # 50 Hz (standard for servos)
 pwm.start(0)
 
 def set_servo_angle(angle):
-    duty = 2 + (angle / 18)  # Convert angle to duty cycle
+    duty = (0.05 * angle) + 2.5  # Convert angle to duty cycle
     GPIO.output(SERVO_PIN, True)
     pwm.ChangeDutyCycle(duty)
     time.sleep(0.5)
